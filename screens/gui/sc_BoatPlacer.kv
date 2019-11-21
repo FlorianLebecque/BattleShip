@@ -1,0 +1,58 @@
+<sc_BoatPlacer>:
+    on_enter : self.onLoad()
+    GridLayout:
+        rows:3
+
+        canvas.before:
+            Color:
+                rgba: 0.19, 0.21, 0.25, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        BoxLayout:
+            size_hint_y:0.1
+        
+            Button:
+                size_hint_x:0.3
+                text:"<"
+                on_release: root.manager.current = "sc_menu"
+
+            Label:
+                font_size: "40sp"
+                text:"Boat placement"
+
+        BoxLayout:
+            size_hint_y:0.8
+            orientation:"horizontal"
+            padding:[25,25,25,25]
+            spacing:10
+            BoxLayout:
+                size_hint_x:0.6
+                GridLayout:
+                    id:GL
+                    rows:10
+                    cols:10
+            GridLayout:
+                rows:3
+                padding:[15,15,15,15]
+                spacing:10
+                size_hint_x:0.4
+                
+                Button:
+                    font_size:"15sp"
+                    text:"Get ship from random file"
+                Button:
+                    font_size:"15sp"
+                    text:"Get random ship position"
+                BoxLayout:
+                    title:"world"
+
+            
+
+        AnchorLayout:
+            anchor_x:"right"
+            size_hint_y:0.1
+            Button:
+                size_hint_x:0.3
+                text:"Play"
