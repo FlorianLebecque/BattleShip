@@ -23,3 +23,4 @@ class sc_score(Screen):
         
         RV.data = [{'text': s} for s in Str_Score]
 
+

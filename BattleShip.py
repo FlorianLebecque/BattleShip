@@ -37,6 +37,7 @@ sm.add_widget(sc_score(name="sc_score"))
 #global variable
 GAME_TYPE = 0; #Player against player , 1 = player against computer
 
+#main class
 class BattleShip(App):
 
     def build(self):

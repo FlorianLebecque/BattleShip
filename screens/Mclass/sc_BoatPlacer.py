@@ -11,7 +11,8 @@ class sc_BoatPlacer(Screen):
         GL = self.ids.GL
 
         #clear all data
-        ButtonGrid = []
+        
+        self.ButtonGrid = []
         GL.children.clear()
 
         #generation of the buttons grid
@@ -25,9 +26,35 @@ class sc_BoatPlacer(Screen):
                # b.on_release= self.b_onclick()
                 ButtonRow.append(b)
                 GL.add_widget(b)
-            ButtonGrid.append(ButtonRow)
+            self.ButtonGrid.append(ButtonRow)
 
 
     def b_onclick(self,*args):
         B = args[0]
         B.text = "O"
+
+    def convertion(self,Fichier):
+        file= open(Fichier, 'r')
+        a=[]
+        for line in file:
+            a.append(line)
+
+        for i in range(len(a)):
+            a[i]=a[i].strip()
+        print(a)
+
+        file.close()            #convertir le fichier txt en python, on obtient tout le tableau avec les * et les lettres
+
+        map=[]
+
+        for i in range(1,11):
+            grenier=[]
+            for j in range (1,11):
+                if a[i][j] in 'tscp':
+                    grenier.append(1)
+                    self.ButtonGrid[i-1][j-1].text = "O"
+                else:
+                    grenier.append(0)       
+            map.append(grenier)
+        print(map)
+        return map
